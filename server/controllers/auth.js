@@ -5,7 +5,7 @@ import User from "../models/User.js"
 
 /* Register User */
 
-export default register  = async(req, res) => {
+export const register  = async(req, res) => {
     try {
         const {
             firstName,
