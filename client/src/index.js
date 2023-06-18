@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import authReducer from "./state";
 import {configureStore} from "@reduxjs/toolkit";
-import {provider} from "react-redux";
+import {Provider} from "react-redux";
 import {
   persistStore,
   persistReducer,
@@ -33,11 +33,11 @@ const store = configureStore({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <provider store = {store}>
+    <Provider store = {store}>
       <persistGate loading = {null} persister = {persistStore(store)}>
     <App />
     </persistGate>
-    </provider>
+    </Provider>
     
   </React.StrictMode>
 );
