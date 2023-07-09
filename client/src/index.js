@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import authReducer from "./state";
 import {configureStore} from "@reduxjs/toolkit";
-import {provider} from "react-redux";
+import {Provider} from "react-redux";
 import {
   persistStore,
   persistReducer,
@@ -16,7 +16,7 @@ import {
   REGISTER
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import {persistGate} from "redux-persist/integration/react";
+import {PersistGate} from "redux-persist/integration/react";
 
 const persistConfig = {key: "root", storage, version: 1};
 const persistedReducer = persistReducer(persistConfig, authReducer);
@@ -33,11 +33,11 @@ const store = configureStore({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <provider store = {store}>
-      <persistGate loading = {null} persister = {persistStore(store)}>
+    <Provider store = {store}>
+      <PersistGate loading = {null} persistor = {persistStore(store)}>
     <App />
-    </persistGate>
-    </provider>
+    </PersistGate>
+    </Provider>
     
   </React.StrictMode>
 );

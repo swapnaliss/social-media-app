@@ -1,46 +1,42 @@
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
-    firstName : {
+    firstName: {
         type: String,
-        required : true,
-        min : 2,
+        required: true,
+        min: 2,
         max: 50
     },
-    lastName : {
+    lastName: {
         type: String,
-        required : true,
-        min : 2,
+        required: true,
+        min: 2,
         max: 50
     },
     email: {
         type: String,
-        required : true,
-        min : 2,
+        required: true,
+        min: 2,
         max: 50
     },
-    password : {
+    password: {
         type: String,
-        required : true,
-        min : 5
-        
+        required: true,
+        min: 5
+
     },
-    picturePath : {
-        type: String,
-        default : ""
-    },
-    friends : {
+    friends: {
         type: Array,
-        default : []
+        default: []
     },
-    location : String,
-    occupation : String,
-    viewedProfile : Number,
-    impressions : Number 
+    location: String,
+    occupation: String,
+    viewedProfile: Number,
+    impressions: Number
 },
-{
-    timestamps: true
-});
+    {
+        timestamps: true
+    });
 
 const User = mongoose.model("User", UserSchema);
 export default User; 
