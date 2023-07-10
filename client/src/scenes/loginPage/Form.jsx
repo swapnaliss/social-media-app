@@ -23,7 +23,7 @@ const registerSchema = yup.object().shape({
   password: yup.string().required("required"),
   location: yup.string().required("required"),
   occupation: yup.string().required("required"),
-  // picture: yup.string().required("required"),
+  picture: yup.string().required("required"),
 });
 
 const loginSchema = yup.object().shape({
@@ -57,20 +57,16 @@ const Form = () => {
 
   const register = async (values, onSubmitProps) => {
     const formData = new FormData();
-    console.log(values)
-    // for (let value in values) {
-    //   formData.append(value, values[value]);
-    // }
-    // formData.append("picturePath", values.picture.name);
+    for (let value in values) {
+      formData.append(value, values[value]);
+    }
+    formData.append("picturePath", values.picture.name);
 
     const savedUserResponse = await fetch(
       "http://localhost:3001/auth/register",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
+        body: formData,
       }
     );
     const savedUser = await savedUserResponse.json();
@@ -82,8 +78,6 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
-    console.log(values)
-
     const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -178,7 +172,7 @@ const Form = () => {
                   helperText={touched.occupation && errors.occupation}
                   sx={{ gridColumn: "span 4" }}
                 />
-                {/* <Box
+                <Box
                   gridColumn="span 4"
                   border={`1px solid ${palette.neutral.medium}`}
                   borderRadius="5px"
@@ -210,7 +204,7 @@ const Form = () => {
                       </Box>
                     )}
                   </Dropzone>
-                </Box> */}
+                </Box>
               </>
             )}
 
@@ -237,6 +231,7 @@ const Form = () => {
             />
           </Box>
 
+          {/* BUTTONS */}
           <Box>
             <Button
               fullWidth

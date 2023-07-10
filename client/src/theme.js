@@ -1,10 +1,8 @@
-import { palette } from "@mui/system";
-
 export const colorTokens = {
-grey : {
-    0:"#FFFFFF",
+  grey: {
+    0: "#FFFFFF",
     10: "#F6F6F6",
-    50:"#F0F0F0",
+    50: "#F0F0F0",
     100: "#E0E0E0",
     200: "#C2C2C2",
     300: "#A3A3A3",
@@ -15,9 +13,8 @@ grey : {
     800: "#1A1A1A",
     900: "#0A0A0A",
     1000: "#000000",
-
-},
-primary: {
+  },
+  primary: {
     50: "#E6FBFF",
     100: "#CCF7FE",
     200: "#99EEFD",
@@ -27,81 +24,79 @@ primary: {
     600: "#00A0BC",
     700: "#006B7D",
     800: "#00353F",
-    900: "#001519"
-},
+    900: "#001519",
+  },
 };
 
 export const themeSettings = (mode) => {
-    return{
-        palette: {
-            mode : mode ,
-            ...(mode === "dark") ? {
-                //pallete values for dark mode
-           primary: {
-            dark: colorTokens.primary[200],
-            main: colorTokens.primary[500],
-            light: colorTokens.primary[800  ]
-           },
-           neutral: {
-            dark : colorTokens.grey[100],
-            main : colorTokens.grey[200],
-            mediumMain : colorTokens.grey[300],
-            medium : colorTokens.grey[500],
-            light : colorTokens.grey[700]
-           },
-           background : {
-            default: colorTokens.grey[900],
-            alt : colorTokens.grey[800]
-           }
-            } : {
-
-                //pallete values for light mode
-                primary: {
-                    dark: colorTokens.primary[700],
-                    main: colorTokens.primary[500],
-                    light: colorTokens.primary[50]
-                   },
-                   neutral: {
-                    dark : colorTokens.grey[700],
-                    main : colorTokens.grey[500],
-                    mediumMain : colorTokens.grey[400],
-                    medium : colorTokens.grey[300],
-                    light : colorTokens.grey[50]
-                   },
-                   background : {
-                    default: colorTokens.grey[10],
-                    alt : colorTokens.grey[0]
-                   }    
+  return {
+    palette: {
+      mode: mode,
+      ...(mode === "dark"
+        ? {
+            primary: {
+              dark: colorTokens.primary[200],
+              main: colorTokens.primary[500],
+              light: colorTokens.primary[800],
             },
-            typography : {
-                fontFamily : ["Rubik", "sans-serif"].join(","),
-                fontSize: 12,
+            neutral: {
+              dark: colorTokens.grey[100],
+              main: colorTokens.grey[200],
+              mediumMain: colorTokens.grey[300],
+              medium: colorTokens.grey[400],
+              light: colorTokens.grey[700],
             },
-            h1 : {
-                fontFamily : ["Rubik", "sans-serif"].join(","),
-                fontSize: 40,
+            background: {
+              default: colorTokens.grey[900],
+              alt: colorTokens.grey[800],
             },
-            h2 : {
-                fontFamily : ["Rubik", "sans-serif"].join(","),
-                fontSize: 32,
+          }
+        : {
+            primary: {
+              dark: colorTokens.primary[700],
+              main: colorTokens.primary[500],
+              light: colorTokens.primary[50],
             },
-            h3 : {
-                fontFamily : ["Rubik", "sans-serif"].join(","),
-                fontSize: 24,
+            neutral: {
+              dark: colorTokens.grey[700],
+              main: colorTokens.grey[500],
+              mediumMain: colorTokens.grey[400],
+              medium: colorTokens.grey[300],
+              light: colorTokens.grey[50],
             },
-            h4 : {
-                fontFamily : ["Rubik", "sans-serif"].join(","),
-                fontSize: 20,
+            background: {
+              default: colorTokens.grey[10],
+              alt: colorTokens.grey[0],
             },
-            h5 : {
-                fontFamily : ["Rubik", "sans-serif"].join(","),
-                fontSize: 16,
-            },
-            h6 : {
-                fontFamily : ["Rubik", "sans-serif"].join(","),
-                fontSize: 14,
-            },
-        }
-
-    }
-}
+          }),
+    },
+    typography: {
+      fontFamily: ["Rubik", "sans-serif"].join(","),
+      fontSize: 12,
+      h1: {
+        fontFamily: ["Rubik", "sans-serif"].join(","),
+        fontSize: 40,
+      },
+      h2: {
+        fontFamily: ["Rubik", "sans-serif"].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ["Rubik", "sans-serif"].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ["Rubik", "sans-serif"].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ["Rubik", "sans-serif"].join(","),
+        fontSize: 16,
+      },
+      h6: {
+        fontFamily: ["Rubik", "sans-serif"].join(","),
+        fontSize: 14,
+      },
+    },
+  };
+};
